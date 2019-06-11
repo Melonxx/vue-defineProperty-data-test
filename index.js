@@ -1,8 +1,10 @@
-class X{
-  constructor({data}){
+class X {
+  constructor({
+    data
+  }) {
     this.data = data
-    for (let key in data) {
-       Object.defineProperty(this, data[key], {
+    for (let key in this.data) {
+      Object.defineProperty(this, key, {
         set(v) {
           this.data[key] = v
           console.log('有人修改了 name')
@@ -16,7 +18,7 @@ class X{
 }
 var view = new X({
   data: {
-      name: 'zch'
+    name: 'zch'
   }
 })
 console.log(view.name === 'zch') // 输出 true
